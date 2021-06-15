@@ -29,4 +29,4 @@ jobs:
         ./scripts/InstallChrome.sh
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew test --info --tests com.example.gui.*
