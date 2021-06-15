@@ -28,5 +28,5 @@ jobs:
        chmod +x ./scripts/InstallChrome.sh
         ./scripts/InstallChrome.sh
 
-    - name: Build with Gradle
+    - name: test gui
       run: ./gradlew test --info --tests com.example.gui.*
