@@ -33,3 +33,9 @@ jobs:
       
     - name: ls
       run: ls /home/runner/work/gui-test/gui-test/build/reports/tests/test
+      
+    - name: Output the run Details
+      uses: actions/upload-artifact@v2
+      with: 
+       name: RunReports
+       path: /home/runner/work/gui-test/gui-test/build/reports/tests/test
