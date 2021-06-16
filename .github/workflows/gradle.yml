@@ -30,3 +30,6 @@ jobs:
 
     - name: test gui
       run: ./gradlew test --info --tests com.example.gui.*
+      
+    - name: ls
+      run: ls /home/runner/work/gui-test/gui-test/build/reports/tests/test
