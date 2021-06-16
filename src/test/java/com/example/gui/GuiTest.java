@@ -38,6 +38,6 @@ public class GuiTest {
     public void validatePageTitle() {
         String requestUrl = prefixURL;
         driver.get(requestUrl);
-        assertEquals("Google?", driver.getTitle());
+        assertEquals("Google", driver.getTitle());
     }
 }
