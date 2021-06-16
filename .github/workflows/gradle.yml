@@ -31,8 +31,15 @@ jobs:
     - name: test gui
       run: ./gradlew test --info --tests com.example.gui.*
       
-    - name: ls
-      run: ls /home/runner/work/gui-test/gui-test/build/reports/tests/test
+    - name: Notificate Slack Channel
+      uses: rtCamp/action-slack-notify@v2
+      if: always()
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_COLOR: ${{ job.status }}
+        SLACK_MESSAGE: "Job Result: ${{ job.status }}"
+        SLACK_TITLE: Job Result
+        SLACK_USERNAME: Job Result Bot
       
     - name: Output the run Details
       uses: actions/upload-artifact@v2
