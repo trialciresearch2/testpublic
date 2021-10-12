@@ -27,11 +27,16 @@ jobs:
       env:
         MY_SE: ${{ secrets.myse }}
       run: |
-       echo "${MY_SE}"
-       echo "${GITHUB_REF#refs/heads/}"
+        if [[ ${{ env.MY_SE }} == "mysecret" ]]; then
+         echo "mysecret"
+        fi
+        echo "${GITHUB_REF#refs/heads/}"
     - name: Build with Gradle
       env:
         MY_SE1: ${{ secrets.myse }}+"string1"
       run: |
-       echo "${MY_SE}"
+       echo "${MY_SE1}"
+       if [[ ${{ env.MY_SE1 }} == "mysecret" ]]; then
+         echo "mysecret"
+        fi
        echo "${GITHUB_REF#refs/heads/}"
