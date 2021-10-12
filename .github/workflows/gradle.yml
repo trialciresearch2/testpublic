@@ -24,6 +24,14 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      env:
+        MY_SE: ${{ secrets.myse }}
+      run: |
+       echo "$MY_SE"
+       echo "${GITHUB_REF#refs/heads/}"
     - name: Build with Gradle
-      run: ./gradlew build
+      env:
+        MY_SE1: ${{ secrets.myse }}+"string1"
+      run: |
+       echo "$MY_SE"
+       echo "${GITHUB_REF#refs/heads/}"
